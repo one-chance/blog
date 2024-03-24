@@ -12,11 +12,8 @@ module.exports = {
     'airbnb',
     'airbnb-typescript',
     'airbnb/hooks',
-    'plugin:jsx-a11y/recommended',
-    'plugin:@typescript-eslint/recommended-type-checked',
-    'plugin:@typescript-eslint/stylistic-type-checked',
-    'plugin:@next/next/recommended',
     'prettier',
+    'plugin:@next/next/recommended',
   ],
   plugins: [
     'import',
@@ -37,8 +34,28 @@ module.exports = {
         jsx: 'never',
       },
     ],
-    'react/react-in-jsx-scope': 0,
+    'react/function-component-definition': [
+      'error',
+      {
+        namedComponents: ['arrow-function', 'function-declaration'],
+        unnamedComponents: 'arrow-function',
+      },
+    ],
+    'react/require-default-props': 'off',
+    'import/order': [
+      'error',
+      {
+        alphabetize: {
+          order: 'asc' /* 'asc'|'desc' */,
+          caseInsensitive: true /* 대소문자 구분 없이 정렬 */,
+        },
+        'newlines-between':
+          'never' /* 'import' 그룹 사이의 새 줄 개수를 제어 */,
+      },
+    ],
+    'import/prefer-default-export': 'off',
+    'react/react-in-jsx-scope': 'off',
     'prettier/prettier': 'error',
-    'react/jsx-props-no-spreading': 0,
+    'react/jsx-props-no-spreading': 'off',
   },
 };
