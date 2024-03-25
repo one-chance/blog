@@ -1,5 +1,5 @@
 {
-  "name": "one-chance-blog",
+  "name": "blog",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@giscus/react": "^3.0.0",
     "@supabase/ssr": "^0.1.0",
     "@supabase/supabase-js": "^2.39.8",
     "@toast-ui/editor": "^3.2.2",

@@ -11,5 +11,9 @@ export default function ToastViewer({ ...rest }: ViewerProps) {
 
   const themeProps = isDark ? { theme: 'dark' } : {};
 
-  return <Viewer {...rest} {...themeProps} />;
+  return (
+    <div className="my-10">
+      <Viewer {...rest} {...themeProps} />
+    </div>
+  );
 }
