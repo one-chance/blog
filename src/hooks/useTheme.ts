@@ -5,12 +5,12 @@ import { useEffect } from 'react';
 import { darkMode } from '@/states';
 
 export const useTheme = () => {
-  const [isDarkMode, setIsDarkMode] = useAtom(darkMode);
+  const [theme, setTheme] = useAtom(darkMode); // true: dark, false: light
 
   const toggleTheme = () => {
     document.documentElement.classList.toggle('dark');
-    sessionStorage.setItem('theme', isDarkMode ? 'light' : 'dark');
-    setIsDarkMode(!isDarkMode);
+    sessionStorage.setItem('theme', theme ? 'light' : 'dark');
+    setTheme(!theme);
   };
 
   useEffect(() => {
@@ -28,7 +28,7 @@ export const useTheme = () => {
         sessionStorage.setItem('theme', 'dark');
       }
 
-      setIsDarkMode(!!e.matches);
+      setTheme(!!e.matches);
     };
 
     themeMediaQuery.addEventListener('change', handleThemeChange);
@@ -36,7 +36,7 @@ export const useTheme = () => {
     return () => {
       themeMediaQuery.removeEventListener('change', handleThemeChange);
     };
-  }, [setIsDarkMode]);
+  }, [setTheme]);
 
   return toggleTheme;
 };

@@ -33,6 +33,7 @@ export default function RootLayout({
           }}
         />
       </head>
+
       <body className="dark:bg-gray-800">
         <Header />
         <main className="w-full min-h-[calc(100vh-56px)] mt-[56px] p-5">

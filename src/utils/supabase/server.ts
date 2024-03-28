@@ -35,7 +35,7 @@ function createClient() {
   );
 }
 
-export const checkUser = async () => {
+export const getLogInUser = async () => {
   const supabase = createClient();
   const {
     data: { user },

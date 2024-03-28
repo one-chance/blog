@@ -2,7 +2,7 @@ export const CAREERS = [
   {
     logo: 'one-chance.svg',
     title: '경력 휴식기',
-    description: '퇴사 후 개인 프로젝트를 통해 필요한 지식 습득',
+    description: '개인 프로젝트를 통해 필요한 지식과 경험을 습득',
     period: '2023.04 ~ 2024.03',
     job: '풀스택 개발자',
     content: [
@@ -11,24 +11,24 @@ export const CAREERS = [
         title: '게임 커뮤니티 리뉴얼',
         period: '2023.05 ~ 2023.09',
         content:
-          '2021년부터 운영하던 게임 커뮤니티를 리뉴얼하였습니다. 기존 구조는 확장성과 호환성이 낮았고, 코드의 품질도 만족스럽지 않아서 확장성이 높은 구조를 새로 설계하고 여러 컴포넌트와 함수를 더 나은 코드로 교체하였습니다. 서버와 클라이언트의 모든 개발과 배포까지 혼자서 진행하여 서비스 개발에 대한 전반적인 이해도가 높아졌습니다. 넥슨과 협의하여 비공개 API를 제공받아 사용하고 있고 현재 회원은 약 3천 명, MAU는 약 1만입니다.',
+          '2021년부터 운영하던 게임 커뮤니티를 리뉴얼하였습니다. 기존 구조는 확장성과 호환성이 낮았고, 코드의 품질도 만족스럽지 않아서 확장성이 높은 구조를 새로 설계하고 여러 컴포넌트와 함수를 더 나은 코드로 교체하였습니다. 서버와 클라이언트의 모든 개발과 배포까지 혼자서 진행하여 서비스 개발에 대한 전반적인 이해도가 높아졌습니다. 넥슨과 협의하여 비공개 API를 제공받아 사용하고, 현재 회원은 약 3천 명이고 MAU는 약 1만입니다.',
         stack: ['React', 'TypeScript', 'Nest.js', 'Node.js', 'MongoDB', 'AWS'],
       },
       {
         link: 'https://github.com/one-chance/react-emotion-starter',
-        title: '보일러플레이트 개발 + npm 배포',
+        title: '보일러플레이트 NPM 배포',
         period: '2023.12 ~ 2024.01',
         content:
-          'SPA에 필요한 주요 기능이 미리 설정된 보일러플레이트를 개발했습니다. Emotion 기반 컴포넌트 라이브러리가 제공되고 다크 모드, 다국어 설정, 반응형 디자인 기능이 지원됩니다. 보일러플레이트 사용 방법은 웹 문서로 제공하고, npm으로 배포하여 누구나 쉽게 사용할 수 있습니다. 현재까지 누적 다운로드 수는 약 2000회 이상입니다. 추후에는 Storybook을 적용하고, 공통 컴포넌트는 별도의 라이브러리로 분리할 계획입니다.',
+          'SPA에 필요한 주요 기능이 미리 설정된 보일러플레이트를 개발했습니다. Emotion 기반 컴포넌트 라이브러리가 제공되고 다크 모드, 다국어 설정, 반응형 디자인이 지원됩니다. 디자인 토큰으로 컴포넌트를 쉽게 스타일링하고, CSS 변수를 통해 원하는 색상을 토큰으로 추가할 수 있습니다. 보일러플레이트는 NPM에 배포하고 사용 방법을 웹문서로 제공하였는데, 현재까지 누적 다운로드 수는 약 2000회 이상입니다.',
         stack: ['React', 'TypeScript', 'Emotion', 'Vite'],
       },
       {
-        link: 'https://github.com/one-chance/react-emotion-starter',
-        title: '개인 블로그 개발 및 운영',
+        link: 'https://github.com/one-chance/blog',
+        title: '기술 블로그 개발 및 운영',
         period: '2024.02 ~ 2024.03',
         content:
-          '개인 블로그를 개발하면서 Next의 주요 개념인 App Directory, App Router, Server Component, Server Action을 경험하였습니다. 특히 역할에 따라 Client 컴포넌트와 Server 컴포넌트를 구분하여 어떻게 전체 구조를 설계할 것인지 많이 고민했습니다. Supabase를 DB로 하여 Serverless로 구축했고, 게시물은 Toast Editor로 보여줍니다. Vercel로 배포하여 운영 중이며 개발 과정에서 얻은 고민과 지식을 기록하고 있습니다.',
-        stack: ['Next.js', 'Tailwind', 'Supabase', 'jotai'],
+          '개인 블로그를 개발하면서 Next의 주요 개념인 App Directory, App Router, Server Component, Server Action을 경험하였습니다. 특히 역할에 따라 Client 컴포넌트와 Server 컴포넌트를 구분하여 전체 구조를 어떻게 설계할지 많이 고민했습니다. Supabase의 DB, Storage, Authentication을 활용하여 게시물을 직접 관리하고, Vercel로 배포합니다. 평소 개발하면서 얻은 고민과 해결 방법을 기록하고 있습니다.',
+        stack: ['Next.js', 'Tailwind', 'Supabase', 'Jotai', 'Vercel'],
       },
     ],
   },
@@ -50,14 +50,14 @@ export const CAREERS = [
         title: '개발 프로세스 개선',
         period: '2022.02 ~ 2023.04',
         content:
-          '팀 자원의 효율적인 사용과 빠른 개발 속도를 위해 개발 프로세스를 개선했습니다. React, TypeScript, Next.js로 기술 스택을 통일하고 렌더링 방식별로 템플릿을 만들었습니다. 빌드 툴을 Webpack에서 Vite로 변경하고 모든 프로젝트에서 사용할 공통 컴포넌트를 Emotion으로 구현했으며 AWS의 S3, CloudFront를 사용하는 정적 배포 과정도 자동화했습니다. 지속적으로 프로세스를 업데이트하면서 개발 효율과 속도를 높였습니다.',
+          '팀 자원을 효율적으로 사용하고 개발 속도를 높이기 위해 개발 프로세스를 체계화했습니다. React, TypeScript, Next.js로 기술 스택을 통일하고 렌더링 방식별로 템플릿을 만들었습니다. 빌드 툴을 Webpack에서 Vite로 변경하고, 컴포넌트 라이브러리를 Emotion으로 구현했으며, AWS의 S3와 CloudFront를 사용하는 정적 배포 과정도 자동화했습니다. 지속적으로 프로세스를 관리하면서 팀의 개발 효율과 속도를 높일 수 있었습니다.',
         stack: ['React', 'TypeScript', 'Next.js', 'Vite', 'Emotion', 'AWS'],
       },
       {
         title: 'BlockChat 백오피스 개발',
         period: '2022.05 ~ 2022.10',
         content:
-          '중앙 서버가 없는 메신저 BlockChat의 백오피스를 개발했습니다. 개발자, 마케터, CS 담당자가 앱을 효과적으로 운영할 수 있도록 지표를 보여주는 대시보드, 버전과 배포를 관리하는 기능, 사용권과 일련번호를 관리하는 기능, CS에 대응하는 기능, 운영자 권한을 관리하는 기능을 구현하였습니다. 별도로 사용권 구매 페이지도 개발했는데, PC와 모바일 모두에서 8개 카드사를 통한 신용카드 결제가 가능하게 했습니다.',
+          '중앙 서버가 없는 메신저 BlockChat의 백오피스를 개발했습니다. 앱이 효과적으로 운영될 수 있게 마케터를 위한 대시보드, 개발자를 위한 앱 버전 관리 기능, CS 담당자를 위한 사용권 발주 기능을 구현하였습니다. 보안을 위해 역할에 맞게 권한을 부여하고 모든 액션을 로깅하여 추적이 가능하게 설정하였습니다. 별도로 사용권을 구매하는 페이지도 개발하여 PC와 모바일에서 신용카드로 결제하는 프로세스를 구축했습니다.',
         stack: ['React', 'TypeScript', 'Emotion', 'Recoil', 'React-Query'],
       },
       {
