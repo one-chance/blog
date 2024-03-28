@@ -1,0 +1,5 @@
+User-Agent: *
+Disallow: /login
+Disallow: /admin
+
+Sitemap: https://one-chance.dev/sitemap.xml
