@@ -1,7 +1,7 @@
 'use client';
 
 import { useAtom } from 'jotai';
-import { useEffect } from 'react';
+import { useLayoutEffect } from 'react';
 import { darkMode } from '@/states';
 
 export const useTheme = () => {
@@ -13,7 +13,7 @@ export const useTheme = () => {
     setTheme(!theme);
   };
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     // website's default theme is dark
     const themeMediaQuery: MediaQueryList = window.matchMedia(
       '(prefers-color-scheme: light)',
@@ -31,12 +31,13 @@ export const useTheme = () => {
       setTheme(!!e.matches);
     };
 
+    setTheme(sessionStorage.getItem('theme') === 'dark');
     themeMediaQuery.addEventListener('change', handleThemeChange);
 
     return () => {
       themeMediaQuery.removeEventListener('change', handleThemeChange);
     };
-  }, [setTheme]);
+  }, [setTheme, theme]);
 
   return toggleTheme;
 };

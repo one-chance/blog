@@ -1,17 +1,13 @@
 'use client';
 
-import { useAtomValue } from 'jotai';
 import Link from 'next/link';
 import { useState } from 'react';
-import { light, dark, menu } from '@/assets/icons';
-import { useTheme, useWindowSize } from '@/hooks';
-import { darkMode } from '@/states';
+import { light, dark, menu } from '@/components/common';
+import { useTheme } from '@/hooks';
 
 export default function Header() {
-  const { width } = useWindowSize();
   const toggleTheme = useTheme();
 
-  const isDarkMode = useAtomValue(darkMode);
   const [showMenu, setShowMenu] = useState(false);
 
   return (
@@ -24,30 +20,44 @@ export default function Header() {
           ONE-CHANCE
         </Link>
 
-        <div className="flex flex-row gap-8">
-          {width > 600 && (
-            <>
-              <Link href="/posts" className="font-semibold dark:text-white">
-                Post
-              </Link>
+        <div className="flex flex-row gap-4 sm:gap-8">
+          <Link
+            href="/posts"
+            className="hidden sm:block font-semibold dark:text-white"
+          >
+            Post
+          </Link>
 
-              <Link href="/about" className="font-semibold dark:text-white">
-                About
-              </Link>
-            </>
-          )}
+          <Link
+            href="/about"
+            className="hidden sm:block font-semibold dark:text-white"
+          >
+            About
+          </Link>
 
-          <div className="flex flex-row gap-2">
-            <button type="button" onClick={toggleTheme}>
-              {isDarkMode ? light : dark}
-            </button>
+          <button
+            className="hidden text-white dark:block"
+            type="button"
+            onClick={toggleTheme}
+          >
+            {light}
+          </button>
 
-            {width <= 600 && (
-              <button type="button" onClick={() => setShowMenu(!showMenu)}>
-                {menu}
-              </button>
-            )}
-          </div>
+          <button
+            className="text-black dark:hidden"
+            type="button"
+            onClick={toggleTheme}
+          >
+            {dark}
+          </button>
+
+          <button
+            type="button"
+            className="block sm:hidden text-black dark:text-white"
+            onClick={() => setShowMenu(!showMenu)}
+          >
+            {menu}
+          </button>
         </div>
       </div>
 
