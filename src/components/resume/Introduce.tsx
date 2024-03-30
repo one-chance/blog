@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { email, github, linkedin } from '@/assets/icons';
+import { email, github, linkedin } from '@/components/common';
 
 export default function Introduce() {
   return (
@@ -60,6 +60,7 @@ export default function Introduce() {
         <div className="flex flex-row justify-between flex-wrap w-28">
           <a
             href="https://linkedin.com/in/one-chance"
+            className="text-black dark:text-white"
             aria-label="linked-in link"
             target="_blank"
             rel="noreferrer noopener"
@@ -67,6 +68,7 @@ export default function Introduce() {
             {linkedin}
           </a>
           <a
+            className="text-black dark:text-white"
             href="https://github.com/one-chance"
             aria-label="github link"
             target="_blank"
@@ -74,7 +76,11 @@ export default function Introduce() {
           >
             {github}
           </a>
-          <a href="mailto:woody.front@gmail.com" aria-label="mail link">
+          <a
+            className="text-black dark:text-white"
+            href="mailto:woody.front@gmail.com"
+            aria-label="mail link"
+          >
             {email}
           </a>
         </div>

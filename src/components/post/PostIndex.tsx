@@ -5,7 +5,6 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useWindowSize } from '@/hooks';
 
 type HeadingInfo = {
   id: string;
@@ -14,12 +13,12 @@ type HeadingInfo = {
 };
 
 export default function PostIndex() {
-  const { width } = useWindowSize();
   const [headings, setHeadings] = useState<HeadingInfo[]>([]);
   const [activeId, setActiveId] = useState('');
 
   useEffect(() => {
     const headingElements = document.querySelectorAll('h2, h3');
+
     const headingInfos: HeadingInfo[] = Array.from(headingElements).map(
       (heading, index) => {
         const text = heading.textContent || '';
@@ -56,18 +55,16 @@ export default function PostIndex() {
   }, []);
 
   return (
-    width > 1080 && (
-      <div className="flex flex-col w-[280px] sticky top-[96px] ml-10">
-        {headings.map((heading, index) => (
-          <a
-            key={index}
-            href={`#heading-${index}`}
-            className={`font-medium py-1 ${heading.level > 2 ? 'px-4' : 'px-2'} ${heading.id === activeId ? 'bg-indigo-400 text-white' : 'text-gray-500'}`}
-          >
-            {heading.text}
-          </a>
-        ))}
-      </div>
-    )
+    <div className="flex flex-col hidden md:block w-[280px] sticky top-[96px] ml-10">
+      {headings.map((heading, index) => (
+        <a
+          key={index}
+          href={`#heading-${index}`}
+          className={`font-medium py-1 ${heading.level > 2 ? 'px-4' : 'px-2'} ${heading.id === activeId ? 'bg-indigo-400 text-white' : 'text-gray-500'}`}
+        >
+          {heading.text}
+        </a>
+      ))}
+    </div>
   );
 }

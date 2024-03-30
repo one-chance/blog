@@ -21,10 +21,12 @@ export default function NewPost() {
   const [url, setUrl] = useState('');
   const [abstract, setAbstract] = useState('');
 
-  const onCancel = () => {
-    signOut();
+  const onCancel = async () => {
+    const isLogOut = await signOut();
 
-    window.location.href = '/';
+    if (isLogOut) {
+      window.location.href = '/';
+    }
   };
 
   const onSave = () => {

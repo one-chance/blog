@@ -26,7 +26,7 @@ export default async function PostPage({ params }: ParamProps) {
   return (
     <div className="flex flex-col max-w-[1080px] mx-auto py-5 gap-10">
       <div className="flex flex-row items-start">
-        <div className="flex flex-col flex-1 min-h-screen">
+        <div className="flex flex-col flex-1 max-w-[760px] min-h-screen mx-auto">
           {!post.thumbnail ? (
             <div className="flex h-80 border justify-center items-center max-w-[760px]">
               <span className="text-3xl">썸네일</span>
