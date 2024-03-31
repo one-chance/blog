@@ -2,15 +2,18 @@
 
 import { useAtom } from 'jotai';
 import { useLayoutEffect } from 'react';
-import { darkMode } from '@/states';
+import { themeAtom } from '@/states';
+import { Theme } from '@/types/Theme';
 
 export const useTheme = () => {
-  const [theme, setTheme] = useAtom(darkMode); // true: dark, false: light
+  const [theme, setTheme] = useAtom<Theme>(themeAtom);
 
   const toggleTheme = () => {
+    const newTheme = theme === 'light' ? 'dark' : 'light';
+
     document.documentElement.classList.toggle('dark');
-    sessionStorage.setItem('theme', theme ? 'light' : 'dark');
-    setTheme(!theme);
+    sessionStorage.setItem('theme', newTheme);
+    setTheme(newTheme);
   };
 
   useLayoutEffect(() => {
@@ -23,21 +26,20 @@ export const useTheme = () => {
       if (e.matches) {
         document.documentElement.classList.remove('dark');
         sessionStorage.setItem('theme', 'light');
+        setTheme('light');
       } else {
         document.documentElement.classList.add('dark');
         sessionStorage.setItem('theme', 'dark');
+        setTheme('dark');
       }
-
-      setTheme(!!e.matches);
     };
 
-    setTheme(sessionStorage.getItem('theme') === 'dark');
     themeMediaQuery.addEventListener('change', handleThemeChange);
 
     return () => {
       themeMediaQuery.removeEventListener('change', handleThemeChange);
     };
-  }, [setTheme, theme]);
+  }, [setTheme]);
 
   return toggleTheme;
 };

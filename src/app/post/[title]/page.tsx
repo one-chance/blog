@@ -42,6 +42,7 @@ export default async function PostPage({ params }: ParamProps) {
             abstract={post.abstract}
             createdAt={post.created_at}
           />
+
           <DynamicViewer initialValue={post.content?.toString() ?? ''} />
 
           <PostComment />

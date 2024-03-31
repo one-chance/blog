@@ -1,4 +1,5 @@
 /* eslint-disable react/no-danger */
+import { Provider } from 'jotai';
 import type { Metadata } from 'next';
 import { Footer, Header } from '@/components/layout';
 import './globals.css';
@@ -35,11 +36,13 @@ export default function RootLayout({
       </head>
 
       <body className="dark:bg-gray-800">
-        <Header />
-        <main className="w-full min-h-[calc(100vh-56px)] mt-[56px] p-5">
-          {children}
-        </main>
-        <Footer />
+        <Provider>
+          <Header />
+          <main className="w-full min-h-[calc(100vh-56px)] mt-[56px] p-5">
+            {children}
+          </main>
+          <Footer />
+        </Provider>
       </body>
     </html>
   );

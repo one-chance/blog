@@ -4,16 +4,25 @@ import { Viewer, ViewerProps } from '@toast-ui/react-editor';
 import '@toast-ui/editor/dist/toastui-editor.css';
 import '@toast-ui/editor/dist/theme/toastui-editor-dark.css';
 import { useAtomValue } from 'jotai';
-import { darkMode } from '@/states';
+import { useEffect } from 'react';
+import { themeAtom } from '@/states';
 
 export default function ToastViewer({ ...rest }: ViewerProps) {
-  const isDark = useAtomValue(darkMode);
+  const theme = useAtomValue(themeAtom);
 
-  const themeProps = isDark ? { theme: 'dark' } : {};
+  useEffect(() => {
+    const viewer = document.getElementById('viewer')!;
+
+    if (theme === 'dark') {
+      viewer.firstElementChild?.classList.add('toastui-editor-dark');
+    } else {
+      viewer.firstElementChild?.classList.remove('toastui-editor-dark');
+    }
+  }, [theme]);
 
   return (
-    <div className="my-10">
-      <Viewer {...rest} {...themeProps} />
+    <div id="viewer" className="my-10 min-h-[400px]">
+      <Viewer {...rest} theme={theme} />
     </div>
   );
 }

@@ -2,10 +2,10 @@
 
 import Giscus from '@giscus/react';
 import { useAtomValue } from 'jotai';
-import { darkMode } from '@/states';
+import { themeAtom } from '@/states';
 
 export default function PostComment() {
-  const isDark = useAtomValue(darkMode);
+  const theme = useAtomValue(themeAtom);
 
   return (
     <div className="w-full min-h-[400px] mt-10">
@@ -20,7 +20,7 @@ export default function PostComment() {
         reactionsEnabled="1"
         emitMetadata="0"
         inputPosition="bottom"
-        theme={isDark ? 'dark' : 'light'}
+        theme={theme === 'dark' ? 'dark' : 'light'}
         lang="ko"
         loading="lazy"
       />
